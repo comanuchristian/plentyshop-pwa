@@ -12,6 +12,7 @@ import { thirdPartyDeps, localPackageDeps } from './app/configuration/optimize-d
 export default defineNuxtConfig({
   srcDir: 'app/',
   telemetry: false,
+  ssr: false,
   devtools: { enabled: true },
   css: ['~/assets/richtext.css'],
   typescript: {
@@ -150,7 +151,7 @@ export default defineNuxtConfig({
     apiUrl: validateApiUrl(process.env.API_URL) ?? 'http://localhost:8181',
     apiEndpoint: process.env.API_ENDPOINT,
     configId: Number(process.env.CONFIG_ID) || 1,
-    middlewareSSRUrl: 'http://localhost:8181',
+    middlewareSSRUrl: process.env.API_URL ?? 'http://localhost:8181',
   },
   shopModuleMollie: {
     checkoutUrl: paths.checkout,
