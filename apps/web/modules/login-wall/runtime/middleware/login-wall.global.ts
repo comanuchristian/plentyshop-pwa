@@ -16,7 +16,10 @@ function isWhitelisted(path: string): boolean {
 }
 
 export default defineNuxtRouteMiddleware(async (to) => {
-  if (isWhitelisted(to.path)) return;
+  if (isWhitelisted(to.path)) {
+    setPageLayout('login-wall');
+    return;
+  }
 
   const { isAuthorized, user } = useCustomer();
   const { fetchSession } = useFetchSession();
