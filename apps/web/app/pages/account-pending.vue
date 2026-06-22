@@ -10,6 +10,8 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({ layout: 'login-wall' });
+
 const { logout: logoutUser } = useCustomer();
 const localePath = useLocalePath();
 

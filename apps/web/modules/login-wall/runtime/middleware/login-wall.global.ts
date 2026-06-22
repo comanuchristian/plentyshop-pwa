@@ -1,6 +1,5 @@
 const WHITELIST = [
   '/login',
-  '/register',
   '/reset-password',
   '/set-new-password',
   '/account-pending',
