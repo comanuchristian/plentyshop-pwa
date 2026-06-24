@@ -12,7 +12,6 @@ import { thirdPartyDeps, localPackageDeps } from './app/configuration/optimize-d
 export default defineNuxtConfig({
   srcDir: 'app/',
   telemetry: false,
-  ssr: false,
   devtools: { enabled: true },
   css: ['~/assets/richtext.css'],
   typescript: {
