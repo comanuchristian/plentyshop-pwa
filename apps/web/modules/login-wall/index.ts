@@ -7,7 +7,7 @@ export default defineNuxtModule({
   setup(_options, nuxt) {
     const resolver = createResolver(import.meta.url);
 
-    nuxt.options.runtimeConfig.public.b2bClassId = process.env.B2B_CLASS_ID ?? '';
+    nuxt.options.runtimeConfig.public.b2bClassId = process.env.B2B_CLASS_ID ?? '3';
 
     nuxt.options.app.head = {
       ...nuxt.options.app.head,
