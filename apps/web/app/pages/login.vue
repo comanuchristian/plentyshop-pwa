@@ -1,7 +1,5 @@
 <template>
-  <NuxtLayout name="login-wall">
-    <LoginComponent :is-soft-login="true" @logged-in="navigateAfterAuth" />
-  </NuxtLayout>
+  <LoginComponent :is-soft-login="true" @logged-in="navigateAfterAuth" />
 </template>
 
 <script setup lang="ts">
@@ -12,7 +10,7 @@ defineI18nRoute({
 });
 
 definePageMeta({
-  layout: false,
+  layout: 'login-wall',
   middleware: ['guest-guard'],
 });
 const { setPageMeta } = usePageMeta();
