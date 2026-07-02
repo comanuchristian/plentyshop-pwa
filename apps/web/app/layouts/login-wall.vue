@@ -20,9 +20,22 @@
 
 <script setup lang="ts">
 const localePath = useLocalePath();
+
+onMounted(() => {
+  document.documentElement.classList.add('login-wall-active');
+});
+onUnmounted(() => {
+  document.documentElement.classList.remove('login-wall-active');
+});
 </script>
 
 <style>
+html.login-wall-active,
+html.login-wall-active body {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
 :root {
   --colors-2-primary-50: 240 249 255;
   --colors-2-primary-100: 224 242 254;
