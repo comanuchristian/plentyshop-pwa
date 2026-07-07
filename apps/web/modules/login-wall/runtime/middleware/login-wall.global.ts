@@ -15,15 +15,14 @@ function isWhitelisted(path: string): boolean {
 }
 
 export default defineNuxtRouteMiddleware(async (to) => {
-  if (isWhitelisted(to.path)) {
-    setPageLayout('login-wall');
-    return;
-  }
+  if (isWhitelisted(to.path)) return;
 
   const { isAuthorized, user } = useCustomer();
   const { fetchSession } = useFetchSession();
   const localePath = useLocalePath();
-  const b2bClassId = Number(useRuntimeConfig().public.b2bClassId);
+  const b2bClassIds = (useRuntimeConfig().public.b2bClassIds as string)
+    .split(',')
+    .map((id) => Number(id.trim()));
 
   await fetchSession();
 
@@ -34,7 +33,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
     });
   }
 
-  if (user.value?.classId !== b2bClassId) {
+  if (!b2bClassIds.includes(user.value?.classId ?? 0)) {
     return navigateTo(localePath('/account-pending'));
   }
 });
