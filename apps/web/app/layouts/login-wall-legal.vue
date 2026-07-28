@@ -1,11 +1,13 @@
 <template>
-  <div class="h-screen bg-white flex flex-col overflow-hidden">
+  <div class="min-h-screen bg-white flex flex-col">
     <header class="px-8 py-6">
-      <img :src="logoSrc" alt="Logo" class="h-10 w-auto" />
+      <NuxtLink :to="localePath('/login')">
+        <img :src="logoSrc" alt="Logo" class="h-10 w-auto" />
+      </NuxtLink>
     </header>
 
-    <main class="flex-grow flex items-center justify-center px-6">
-      <div class="w-full max-w-md">
+    <main class="flex-grow px-6 py-4">
+      <div class="mx-auto w-full max-w-4xl">
         <slot />
       </div>
     </main>
@@ -21,19 +23,4 @@
 <script setup lang="ts">
 const localePath = useLocalePath();
 const { logoSrc } = useLoginWallBranding();
-
-onMounted(() => {
-  document.documentElement.classList.add('login-wall-active');
-});
-onUnmounted(() => {
-  document.documentElement.classList.remove('login-wall-active');
-});
 </script>
-
-<style>
-html.login-wall-active,
-html.login-wall-active body {
-  overflow: hidden !important;
-  height: 100% !important;
-}
-</style>

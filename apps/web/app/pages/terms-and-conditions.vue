@@ -14,6 +14,7 @@ const { getRobots, setRobotForStaticPage } = useRobots();
 
 definePageMeta({
   pageType: 'static',
+  layout: 'login-wall-legal',
 });
 const { setPageMeta } = usePageMeta();
 

@@ -18,6 +18,7 @@ setPageMeta(t('legal.legalDisclosure'), icon);
 
 definePageMeta({
   pageType: 'static',
+  layout: 'login-wall-legal',
 });
 
 await getLegalTexts({
